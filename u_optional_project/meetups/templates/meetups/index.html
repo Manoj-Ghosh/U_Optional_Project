@@ -7,20 +7,47 @@
 
     <title>All Meetups Tab</title>
     <link rel="stylesheet", href="{% static 'meetups/styles/base.css' %}">
+    <link rel="stylesheet", href="{% static 'meetups/styles/all-meetups.css' %}">
+
 
   </head>
   <body>
-    <h1>All Meetups !</h1>
-    <p>Hello World !</p>
-    {% if show_meetups %}
-      {% for meetup_item in meetups %}
-        <p>{{ meetup_item.title }}</p>
+    <header id = "main-header">
+      <nav><a href = "/meetups" id = "main-logo">DjangoMeetups</nav>
+      <h1>We got great meetups coming up! </h1>
+      <p>Find the one that could be best suits youe needs !</p>
 
-      {% endfor %}
-        <h2>{{ meetups.0.title }}</h2>
+    </header>
+    <main>
+      <section>
+        <h2>Upcoming Meetups </h2>
+        <ol>
+          {% for meetups_item in meetups %}
+            <li class ="meetups-item">
+              <article>
+                <div class = "meetups-summary">
+                  <div class = "meetups-image">
+                    <img src = "" alt ="">
+                  </div>
+                    <div class = "meetups-details">
+                      <h3>{{ meetups_item.title }}</h3>
+                      <address>{{ meetups_item.location }}</address>
 
-    {% else %}
-        <p>No MeetUps Found ! </p>
-    {% endif %}
+                    </div>
+                </div>
+                <div class = "meetups-actions">
+                  <a href = "" class = "btn">More Details</a>
+
+                </div>
+              </article>
+
+            </li>
+          {% endfor %}
+
+
+        </ol>
+      </section>
+
+    </main>
   </body>
 </html>
